@@ -1,0 +1,359 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* =========================
+   FONDO ANIMADO
+========================= */
+
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.background span{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    animation:flotar 16s linear infinite;
+}
+
+.background span:nth-child(1){
+    width:220px;
+    height:220px;
+    top:10%;
+    left:10%;
+}
+
+.background span:nth-child(2){
+    width:260px;
+    height:260px;
+    top:70%;
+    left:75%;
+}
+
+.background span:nth-child(3){
+    width:160px;
+    height:160px;
+    top:40%;
+    left:50%;
+}
+
+.background span:nth-child(4){
+    width:180px;
+    height:180px;
+    top:80%;
+    left:15%;
+}
+
+.background span:nth-child(5){
+    width:130px;
+    height:130px;
+    top:15%;
+    left:80%;
+}
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-40px) rotate(180deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(360deg);
+    }
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 18px 120px;
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.logo{
+    font-size:clamp(55px,8vw,80px);
+    margin-bottom:15px;
+    color:#ffd700;
+    animation:zoom 2s infinite;
+}
+
+@keyframes zoom{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+.unidad{
+    font-size:clamp(1rem,3vw,1.5rem);
+    margin-bottom:10px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+h1{
+    font-size:clamp(2rem,6vw,4rem);
+    margin-bottom:10px;
+    text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+.area{
+    font-size:clamp(1.1rem,3vw,1.7rem);
+    margin-bottom:20px;
+    color:#ffe082;
+}
+
+.descripcion{
+    font-size:clamp(0.95rem,2vw,1.2rem);
+    line-height:1.7;
+    margin-bottom:45px;
+    opacity:0.95;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    width:100%;
+}
+
+.card{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(12px);
+    border-radius:28px;
+    padding:35px 22px;
+    transition:0.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.45);
+}
+
+.icono{
+    font-size:clamp(45px,6vw,65px);
+    margin-bottom:20px;
+    color:#ffd700;
+}
+
+.card h2{
+    font-size:clamp(1.4rem,4vw,2rem);
+    margin-bottom:15px;
+}
+
+.horario{
+    font-size:clamp(1rem,2vw,1.15rem);
+    line-height:1.7;
+    margin-bottom:28px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    min-height:56px;
+    padding:15px 20px;
+    border-radius:50px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:1rem;
+    transition:0.35s;
+    border:none;
+}
+
+/* BOTÓN ZOOM */
+
+.zoom{
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    box-shadow:0 0 20px rgba(0,114,255,0.45);
+}
+
+.zoom:hover{
+    transform:scale(1.03);
+    background:linear-gradient(45deg,#ff512f,#dd2476);
+}
+
+/* BOTÓN NOTAS */
+
+.notas-box{
+    margin-top:60px;
+}
+
+.notas-box h3{
+    margin-bottom:20px;
+    font-size:clamp(1.2rem,3vw,1.7rem);
+}
+
+.notas{
+    max-width:400px;
+    margin:auto;
+    background:linear-gradient(45deg,#00b09b,#96c93d);
+}
+
+.notas:hover{
+    transform:scale(1.03);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    width:100%;
+    padding:25px 18px;
+    text-align:center;
+    background:rgba(0,0,0,0.28);
+    backdrop-filter:blur(10px);
+    position:relative;
+    z-index:2;
+}
+
+footer p{
+    margin-bottom:15px;
+    font-size:clamp(0.95rem,2vw,1rem);
+}
+
+.whatsapp{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    max-width:350px;
+    margin:auto;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    border-radius:50px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.03);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .container{
+        padding:25px 16px 100px;
+    }
+
+    .cards{
+        gap:20px;
+    }
+
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px){
+
+    .container{
+        padding-top:25px;
+    }
+
+    .card{
+        padding:28px 18px;
+        border-radius:24px;
+    }
+
+    .descripcion br{
+        display:none;
+    }
+
+}
+
+/* =========================
+   CELULAR PEQUEÑO
+========================= */
+
+@media(max-width:360px){
+
+    .btn{
+        font-size:0.92rem;
+    }
+
+    .card h2{
+        font-size:1.3rem;
+    }
+
+}
+
+/* =========================
+   FECHA Y HORARIO
+========================= */
+
+.horario{
+    font-size:clamp(1rem,2vw,1.15rem);
+    line-height:1.9;
+    margin-bottom:28px;
+    background:rgba(255,255,255,0.08);
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+/* EFECTO TEXTO */
+.horario strong{
+    color:#ffe082;
+}
+
