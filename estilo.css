@@ -1,359 +1,320 @@
+/* ======================================
+   RESET GENERAL
+====================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+:root{
+    --azul:#3b82f6;
+    --celeste:#60a5fa;
+    --verde:#22c55e;
+    --amarillo:#facc15;
+    --naranja:#fb923c;
+    --blanco:#ffffff;
+    --gris:#f5f7fb;
+    --texto:#1f2937;
 }
+
+/* ======================================
+   BODY
+====================================== */
 
 body{
+    font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
     min-height:100vh;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    color:white;
+    background:linear-gradient(
+        135deg,
+        #60a5fa,
+        #93c5fd,
+        #bfdbfe
+    );
     overflow-x:hidden;
-    position:relative;
 }
 
-/* =========================
-   FONDO ANIMADO
-========================= */
+/* ======================================
+   PANTALLAS
+====================================== */
 
-.background{
-    position:fixed;
+.pantalla{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.oculto{
+    display:none !important;
+}
+
+/* ======================================
+   TARJETA PRINCIPAL
+====================================== */
+
+.card{
     width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:0;
-}
-
-.background span{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,0.08);
-    animation:flotar 16s linear infinite;
-}
-
-.background span:nth-child(1){
-    width:220px;
-    height:220px;
-    top:10%;
-    left:10%;
-}
-
-.background span:nth-child(2){
-    width:260px;
-    height:260px;
-    top:70%;
-    left:75%;
-}
-
-.background span:nth-child(3){
-    width:160px;
-    height:160px;
-    top:40%;
-    left:50%;
-}
-
-.background span:nth-child(4){
-    width:180px;
-    height:180px;
-    top:80%;
-    left:15%;
-}
-
-.background span:nth-child(5){
-    width:130px;
-    height:130px;
-    top:15%;
-    left:80%;
-}
-
-@keyframes flotar{
-
-    0%{
-        transform:translateY(0px) rotate(0deg);
-    }
-
-    50%{
-        transform:translateY(-40px) rotate(180deg);
-    }
-
-    100%{
-        transform:translateY(0px) rotate(360deg);
-    }
-}
-
-/* =========================
-   CONTENEDOR
-========================= */
-
-.container{
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-    padding:30px 18px 120px;
-    position:relative;
-    z-index:2;
+    max-width:550px;
+    background:#ffffff;
+    border-radius:25px;
+    padding:35px;
     text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+    animation:aparecer .6s ease;
 }
 
-/* =========================
-   ENCABEZADO
-========================= */
-
-.logo{
-    font-size:clamp(55px,8vw,80px);
-    margin-bottom:15px;
-    color:#ffd700;
-    animation:zoom 2s infinite;
-}
-
-@keyframes zoom{
-
-    0%,100%{
-        transform:scale(1);
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(20px);
     }
-
-    50%{
-        transform:scale(1.1);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-.unidad{
-    font-size:clamp(1rem,3vw,1.5rem);
-    margin-bottom:10px;
-    font-weight:600;
-    line-height:1.5;
-}
+/* ======================================
+   TITULOS
+====================================== */
 
 h1{
-    font-size:clamp(2rem,6vw,4rem);
-    margin-bottom:10px;
-    text-shadow:0 0 20px rgba(255,255,255,0.4);
+    color:var(--azul);
+    font-size:38px;
+    margin-bottom:8px;
 }
 
-.area{
-    font-size:clamp(1.1rem,3vw,1.7rem);
-    margin-bottom:20px;
-    color:#ffe082;
+h2{
+    color:var(--naranja);
+    font-size:24px;
+    margin-bottom:15px;
 }
 
 .descripcion{
-    font-size:clamp(0.95rem,2vw,1.2rem);
-    line-height:1.7;
-    margin-bottom:45px;
-    opacity:0.95;
+    color:#555;
+    margin-bottom:25px;
 }
 
-/* =========================
-   TARJETAS
-========================= */
+/* ======================================
+   FORMULARIOS
+====================================== */
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
+.formulario{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+label{
+    text-align:left;
+    font-weight:700;
+    color:var(--texto);
+}
+
+input{
     width:100%;
-}
-
-.card{
-    background:rgba(255,255,255,0.12);
-    border:1px solid rgba(255,255,255,0.2);
-    backdrop-filter:blur(12px);
-    border-radius:28px;
-    padding:35px 22px;
-    transition:0.4s;
-    box-shadow:0 10px 30px rgba(0,0,0,0.35);
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 40px rgba(0,0,0,0.45);
-}
-
-.icono{
-    font-size:clamp(45px,6vw,65px);
-    margin-bottom:20px;
-    color:#ffd700;
-}
-
-.card h2{
-    font-size:clamp(1.4rem,4vw,2rem);
+    padding:15px;
+    border:3px solid #dbeafe;
+    border-radius:15px;
+    font-size:18px;
+    transition:.3s;
     margin-bottom:15px;
 }
 
-.horario{
-    font-size:clamp(1rem,2vw,1.15rem);
-    line-height:1.7;
-    margin-bottom:28px;
+input:focus{
+    outline:none;
+    border-color:var(--azul);
+    box-shadow:0 0 0 4px rgba(59,130,246,.2);
 }
 
-/* =========================
+/* ======================================
    BOTONES
-========================= */
+====================================== */
 
-.btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
+button{
     width:100%;
-    min-height:56px;
-    padding:15px 20px;
-    border-radius:50px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    font-size:1rem;
-    transition:0.35s;
+    padding:15px;
     border:none;
-}
-
-/* BOTÓN ZOOM */
-
-.zoom{
-    background:linear-gradient(45deg,#00c6ff,#0072ff);
-    box-shadow:0 0 20px rgba(0,114,255,0.45);
-}
-
-.zoom:hover{
-    transform:scale(1.03);
-    background:linear-gradient(45deg,#ff512f,#dd2476);
-}
-
-/* BOTÓN NOTAS */
-
-.notas-box{
-    margin-top:60px;
-}
-
-.notas-box h3{
-    margin-bottom:20px;
-    font-size:clamp(1.2rem,3vw,1.7rem);
-}
-
-.notas{
-    max-width:400px;
-    margin:auto;
-    background:linear-gradient(45deg,#00b09b,#96c93d);
-}
-
-.notas:hover{
-    transform:scale(1.03);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    width:100%;
-    padding:25px 18px;
-    text-align:center;
-    background:rgba(0,0,0,0.28);
-    backdrop-filter:blur(10px);
-    position:relative;
-    z-index:2;
-}
-
-footer p{
-    margin-bottom:15px;
-    font-size:clamp(0.95rem,2vw,1rem);
-}
-
-.whatsapp{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    width:100%;
-    max-width:350px;
-    margin:auto;
-    background:#25D366;
+    border-radius:12px;
     color:white;
-    text-decoration:none;
-    padding:15px 20px;
-    border-radius:50px;
+    font-size:18px;
     font-weight:bold;
-    transition:0.3s;
+    cursor:pointer;
+    transition:all .25s ease;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
-.whatsapp:hover{
-    transform:scale(1.03);
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-/* =========================
-   TABLET
-========================= */
-
-@media(max-width:900px){
-
-    .container{
-        padding:25px 16px 100px;
-    }
-
-    .cards{
-        gap:20px;
-    }
-
+button:active{
+    transform:translateY(0px);
 }
 
-/* =========================
-   CELULAR
-========================= */
+#btnGenerar{
+    background:var(--verde);
+}
 
-@media(max-width:600px){
+#btnCopiar{
+    background:var(--naranja);
+}
 
-    .container{
-        padding-top:25px;
-    }
+button:hover{
+    transform:translateY(-2px);
+}
+
+button.loading{
+    opacity:.7;
+    pointer-events:none;
+}
+
+button.loading::after{
+    content:"...";
+}
+
+/* ======================================
+   RESULTADO CLASE
+====================================== */
+
+#resultadoClase{
+    margin-top:20px;
+    padding:20px;
+    background:#f8fafc;
+    border-radius:15px;
+    border:2px dashed #93c5fd;
+}
+
+#codigoClase{
+    font-size:22px;
+    font-weight:bold;
+    color:var(--verde);
+    margin:15px 0;
+}
+
+#linkClase{
+    margin-bottom:10px;
+}
+
+/* ======================================
+   INFO CLASE
+====================================== */
+
+.infoClase{
+    background:#eff6ff;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.infoClase strong{
+    color:var(--azul);
+}
+
+/* ======================================
+   VIDEOLLAMADA
+====================================== */
+
+#jaas-container{
+    width:100%;
+    height:100vh;
+    display:none;
+}
+
+/* ======================================
+   RESPONSIVE TABLET
+====================================== */
+
+@media(max-width:768px){
 
     .card{
-        padding:28px 18px;
-        border-radius:24px;
+        max-width:95%;
+        padding:25px;
     }
 
-    .descripcion br{
-        display:none;
+    h1{
+        font-size:30px;
     }
 
+    h2{
+        font-size:22px;
+    }
 }
 
-/* =========================
-   CELULAR PEQUEÑO
-========================= */
+/* ======================================
+   RESPONSIVE CELULAR
+====================================== */
 
-@media(max-width:360px){
+@media(max-width:480px){
 
-    .btn{
-        font-size:0.92rem;
+    .card{
+        margin-top:-30px;
     }
 
-    .card h2{
-        font-size:1.3rem;
+    h1{
+        font-size:24px;
     }
 
+    h2{
+        font-size:18px;
+    }
+
+    input{
+        font-size:16px;
+        padding:14px;
+    }
+
+    button{
+        padding:14px;
+        font-size:16px;
+    }
+
+    #codigoClase{
+        font-size:18px;
+    }
 }
 
-/* =========================
-   FECHA Y HORARIO
-========================= */
-
-.horario{
-    font-size:clamp(1rem,2vw,1.15rem);
-    line-height:1.9;
-    margin-bottom:28px;
-    background:rgba(255,255,255,0.08);
-    padding:18px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,0.1);
+#qrcode{
+    margin:20px auto;
+    display:flex;
+    justify-content:center;
 }
 
-/* EFECTO TEXTO */
-.horario strong{
-    color:#ffe082;
+#btnEntrarProfesor{
+    background:#2563eb;
+    margin-top:15px;
 }
 
+/* ======================================
+   PANTALLA ESTUDIANTE
+====================================== */
+
+#nombreEstudiante{
+    margin-bottom:25px;
+}
+
+#btnEntrarClase{
+    background:var(--azul);
+    margin-top:10px;
+}
+
+#jaas-container{
+    width:100%;
+    height:100vh;
+    display:none;
+    background:#000;
+}
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
